@@ -5,7 +5,6 @@ import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:socialmedia/views/home.dart';
 import 'package:socialmedia/views/profile.dart';
 import 'package:socialmedia/views/search.dart';
-
 import 'colorsUi.dart';
 
 class BottomNavBarPage extends StatelessWidget {
@@ -15,6 +14,7 @@ class BottomNavBarPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: UIColors().kBgColor,
       appBar: AppBar(
         title: Text('DU Events'),

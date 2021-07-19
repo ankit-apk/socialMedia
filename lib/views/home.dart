@@ -4,7 +4,8 @@ import 'package:socialmedia/models/feedCard.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
-  final PostsController _controller = Get.put(PostsController());
+  final PostsController _controller =
+      Get.put(PostsController()); //GetX Controller initializer
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context).size;

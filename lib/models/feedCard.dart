@@ -1,5 +1,3 @@
-
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -9,9 +7,17 @@ class NewWidget extends StatelessWidget {
   const NewWidget({
     Key? key,
     required this.mediaQuery,
+    required this.college,
+    required this.imglink,
+    required this.likes,
+    required this.society,
   }) : super(key: key);
 
   final Size mediaQuery;
+  final String college;
+  final String imglink;
+  final int likes;
+  final String society;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +47,7 @@ class NewWidget extends StatelessWidget {
                   width: mediaQuery.width * 0.04,
                 ),
                 Text(
-                  'Society Name \nCollege Name',
+                  '$society \n$college',
                   style: TextStyle(
                     color: UIColors().kFontColor,
                     fontWeight: FontWeight.bold,
@@ -58,8 +64,7 @@ class NewWidget extends StatelessWidget {
               aspectRatio: 16 / 9,
               child: Container(
                 child: CachedNetworkImage(
-                  imageUrl:
-                      'https://i.ytimg.com/vi/K2K7uXQtRtE/maxresdefault.jpg',
+                  imageUrl: imglink,
                   fit: BoxFit.fill,
                 ),
               ),
@@ -72,7 +77,18 @@ class NewWidget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Icon(FontAwesomeIcons.heart),
+                likes == 0
+                    ? Icon(FontAwesomeIcons.heart)
+                    : Icon(
+                        FontAwesomeIcons.solidHeart,
+                        color: Colors.red,
+                      ),
+                      SizedBox(
+                  width: 5,
+                ),
+                Text(
+                  likes.toString(),
+                ),
                 SizedBox(
                   width: 45,
                 ),

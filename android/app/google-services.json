@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "444739941591",
+    "project_id": "du-events-cf208",
+    "storage_bucket": "du-events-cf208.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:444739941591:android:6b0017ee12669817696c92",
+        "android_client_info": {
+          "package_name": "com.example.socialmedia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "444739941591-be8p8065umclrc40kirchd9grbqri1a2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBu6CygkevOZxQtnkzQiANuqWZI38Bhyuk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "444739941591-be8p8065umclrc40kirchd9grbqri1a2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

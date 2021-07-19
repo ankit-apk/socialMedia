@@ -17,7 +17,7 @@ class BottomNavBarPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: UIColors().kBgColor,
       appBar: AppBar(
-        title: Text('Social Media App'),
+        title: Text('DU Events'),
         backgroundColor: UIColors().kAppBarColor,
       ),
       bottomNavigationBar: Obx(

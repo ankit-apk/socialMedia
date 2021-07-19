@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:socialmedia/controllers/shareController.dart';
 import 'package:socialmedia/utils/colorsUi.dart';
 
 class NewWidget extends StatelessWidget {
@@ -83,7 +84,7 @@ class NewWidget extends StatelessWidget {
                         FontAwesomeIcons.solidHeart,
                         color: Colors.red,
                       ),
-                      SizedBox(
+                SizedBox(
                   width: 5,
                 ),
                 Text(
@@ -92,7 +93,11 @@ class NewWidget extends StatelessWidget {
                 SizedBox(
                   width: 45,
                 ),
-                Icon(FontAwesomeIcons.share),
+                GestureDetector(
+                    onTap: () {
+                      ShareController().share(college, society);
+                    },
+                    child: Icon(FontAwesomeIcons.share)),
               ],
             ),
           ),

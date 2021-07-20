@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:socialmedia/controllers/postsController.dart';
+import 'package:socialmedia/models/eventDetail.dart';
 import 'package:socialmedia/models/feedCard.dart';
 import 'package:socialmedia/utils/colorsUi.dart';
 
@@ -55,12 +56,26 @@ class SearchPage extends StatelessWidget {
                   var data = _controller.searchedPosts[index];
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 8.0),
-                    child: NewWidget(
-                      mediaQuery: mediaQuery,
-                      college: data['clg'],
-                      imglink: data['img'],
-                      likes: data['likes'],
-                      society: data['soc'],
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.to(
+                          () => EventDetailPage(
+                            college: data['clg'],
+                            imglink: data['img'],
+                            likes: data['likes'],
+                            society: data['soc'],
+                            content: data['con'],
+                          ),
+                        );
+                      },
+                      child: NewWidget(
+                        mediaQuery: mediaQuery,
+                        college: data['clg'],
+                        imglink: data['img'],
+                        likes: data['likes'],
+                        society: data['soc'],
+                        content: data['con'],
+                      ),
                     ),
                   );
                 },

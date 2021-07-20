@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:socialmedia/controllers/postsController.dart';
+import 'package:socialmedia/models/eventDetail.dart';
 import 'package:socialmedia/models/feedCard.dart';
 import 'package:get/get.dart';
 
@@ -20,12 +21,26 @@ class HomePage extends StatelessWidget {
               var data = _controller.postList[index];
               return Padding(
                 padding: const EdgeInsets.only(bottom: 8.0),
-                child: NewWidget(
-                  mediaQuery: mediaQuery,
-                  college: data['clg'],
-                  imglink: data['img'],
-                  likes: data['likes'],
-                  society: data['soc'],
+                child: GestureDetector(
+                  onTap: () {
+                    Get.to(()=>
+                      EventDetailPage(
+                        college: data['clg'],
+                        imglink: data['img'],
+                        likes: data['likes'],
+                        society: data['soc'],
+                        content: data['con'],
+                      ),
+                    );
+                  },
+                  child: NewWidget(
+                    mediaQuery: mediaQuery,
+                    college: data['clg'],
+                    imglink: data['img'],
+                    likes: data['likes'],
+                    society: data['soc'],
+                    content: data['con'],
+                  ),
                 ),
               );
             },

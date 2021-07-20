@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:like_button/like_button.dart';
 import 'package:socialmedia/controllers/shareController.dart';
 import 'package:socialmedia/utils/colorsUi.dart';
 
@@ -12,6 +13,7 @@ class NewWidget extends StatelessWidget {
     required this.imglink,
     required this.likes,
     required this.society,
+    required this.content,
   }) : super(key: key);
 
   final Size mediaQuery;
@@ -19,6 +21,7 @@ class NewWidget extends StatelessWidget {
   final String imglink;
   final int likes;
   final String society;
+  final String content;
 
   @override
   Widget build(BuildContext context) {
@@ -78,24 +81,28 @@ class NewWidget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                likes == 0
-                    ? Icon(FontAwesomeIcons.heart)
-                    : Icon(
-                        FontAwesomeIcons.solidHeart,
-                        color: Colors.red,
-                      ),
-                SizedBox(
-                  width: 5,
+                // likes == 0
+                //     ? Icon(FontAwesomeIcons.heart)
+                //     : Icon(
+                //         FontAwesomeIcons.solidHeart,
+                //         color: Colors.red,
+                //       ),
+                LikeButton(
+                  likeCount: likes,
                 ),
-                Text(
-                  likes.toString(),
-                ),
+                // SizedBox(
+                //   width: 5,
+                // ),
+                // Text(
+                //   likes.toString(),
+                // ),
                 SizedBox(
                   width: 45,
                 ),
                 GestureDetector(
                     onTap: () {
-                      ShareController().share(college, society);
+                      ShareController().share(college,
+                          'Hey I found this event on Du Events.\n$content');
                     },
                     child: Icon(FontAwesomeIcons.share)),
               ],

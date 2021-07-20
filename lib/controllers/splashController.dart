@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:socialmedia/utils/bottomBar.dart';
+import 'package:socialmedia/utils/loginPage.dart';
 
 class SplashController extends GetxController {
   @override
@@ -10,12 +12,13 @@ class SplashController extends GetxController {
     startTime();
   }
 
+  var uid = GetStorage().read('uid');
   startTime() async {
     var duration = Duration(seconds: 5);
     return Timer(duration, home);
   }
 
   home() {
-    Get.offAll(()=>BottomNavBarPage());
+    Get.offAll(() => uid != '' ? BottomNavBarPage() : LoginScreen());
   }
 }

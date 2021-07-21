@@ -41,7 +41,7 @@ class LoginScreen extends StatelessWidget {
   }
 
   Future<void> logout() async {
-    await GetStorage().write('uid', '');
+    await GetStorage().write('login',false);
     await _auth.signOut();
 
     Get.offAll(LoginScreen());
@@ -57,8 +57,7 @@ class LoginScreen extends StatelessWidget {
       onLogin: logUser,
       onSignup: authUser,
       onSubmitAnimationCompleted: () {
-        var user = _auth.currentUser!.uid;
-        GetStorage().write('uid', user.toString());
+        GetStorage().write('login',true);
         Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => BottomNavBarPage(),
         ));

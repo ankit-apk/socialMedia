@@ -10,15 +10,18 @@ class SplashController extends GetxController {
   void onInit() {
     super.onInit();
     startTime();
+    uid = GetStorage().read('login');
+    print(uid);
   }
 
-  var uid = GetStorage().read('uid');
+  var uid;
   startTime() async {
     var duration = Duration(seconds: 5);
     return Timer(duration, home);
   }
 
   home() {
-    Get.offAll(() => uid != '' ? BottomNavBarPage() : LoginScreen());
+    Get.offAll(
+        () => uid == true && uid != null ? BottomNavBarPage() : LoginScreen());
   }
 }

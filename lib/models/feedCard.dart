@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:like_button/like_button.dart';
 import 'package:socialmedia/controllers/shareController.dart';
 import 'package:socialmedia/utils/colorsUi.dart';
+import 'package:glass_kit/glass_kit.dart';
 
 class NewWidget extends StatelessWidget {
   const NewWidget({
@@ -25,16 +26,18 @@ class NewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GlassContainer.clearGlass(
       height: mediaQuery.height * 0.48,
+      // color: Colors.black12,
+      borderWidth: 0,
       width: double.infinity,
       child: Stack(
         children: [
           Positioned.fill(
             child: Container(
               decoration: BoxDecoration(
-                color: UIColors().kCardColor,
-              ),
+                  // color: UIColors().kCardColor,
+                  ),
             ),
           ),
           Positioned.directional(
@@ -75,27 +78,16 @@ class NewWidget extends StatelessWidget {
             ),
           ),
           Positioned.directional(
+            start: 1 / 2,
+            end: 1 / 2,
             bottom: 20,
-            start: mediaQuery.width / 2.9,
             textDirection: TextDirection.ltr,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                // likes == 0
-                //     ? Icon(FontAwesomeIcons.heart)
-                //     : Icon(
-                //         FontAwesomeIcons.solidHeart,
-                //         color: Colors.red,
-                //       ),
                 LikeButton(
                   likeCount: likes,
                 ),
-                // SizedBox(
-                //   width: 5,
-                // ),
-                // Text(
-                //   likes.toString(),
-                // ),
                 SizedBox(
                   width: 45,
                 ),
@@ -104,7 +96,10 @@ class NewWidget extends StatelessWidget {
                       ShareController().share(college,
                           'Hey I found this event on Du Events.\n$content');
                     },
-                    child: Icon(FontAwesomeIcons.share)),
+                    child: Icon(
+                      FontAwesomeIcons.share,
+                      color: Colors.green,
+                    )),
               ],
             ),
           ),

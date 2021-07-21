@@ -41,7 +41,7 @@ class LoginScreen extends StatelessWidget {
   }
 
   Future<void> logout() async {
-    await GetStorage().write('login',false);
+    await GetStorage().write('login', false);
     await _auth.signOut();
 
     Get.offAll(LoginScreen());
@@ -52,12 +52,17 @@ class LoginScreen extends StatelessWidget {
     return FlutterLogin(
       title: 'DU Events',
       theme: LoginTheme(
-          primaryColor: Color(0xffa6a0c9), switchAuthTextColor: Colors.black),
-      // logo: 'assets/images/ecorp-lightblue.png',
+        primaryColor: Color(0xff182029),
+        switchAuthTextColor: Colors.black,
+        buttonTheme: LoginButtonTheme(
+            splashColor: Colors.black,
+            highlightColor: Colors.black,
+            backgroundColor: Colors.black),
+      ),
       onLogin: logUser,
       onSignup: authUser,
       onSubmitAnimationCompleted: () {
-        GetStorage().write('login',true);
+        GetStorage().write('login', true);
         Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => BottomNavBarPage(),
         ));

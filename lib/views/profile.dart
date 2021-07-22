@@ -7,7 +7,7 @@ import 'package:socialmedia/models/profileCards.dart';
 import 'package:socialmedia/utils/loginPage.dart';
 
 class ProfilePage extends StatelessWidget {
-  final String url = 'https://shorturl.at/wCRU6';
+  final String url = 'https://i.imgur.com/gidLEsw.png';
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

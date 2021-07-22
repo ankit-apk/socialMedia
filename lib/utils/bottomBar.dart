@@ -8,7 +8,7 @@ import 'colorsUi.dart';
 import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 
 class BottomNavBarPage extends StatelessWidget {
-  final RxInt index = 0.obs;
+  final RxInt index = 2.obs;
   final List pages = [HomePage(), SearchPage(), ProfilePage()].obs;
 
   @override

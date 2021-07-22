@@ -63,6 +63,7 @@ class LoginScreen extends StatelessWidget {
       onSignup: authUser,
       onSubmitAnimationCompleted: () {
         GetStorage().write('login', true);
+        GetStorage().write('email', _auth.currentUser!.email);
         Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => BottomNavBarPage(),
         ));

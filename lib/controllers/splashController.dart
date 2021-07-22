@@ -16,7 +16,7 @@ class SplashController extends GetxController {
 
   var uid;
   startTime() async {
-    var duration = Duration(seconds: 5);
+    var duration = Duration(seconds: 3);
     return Timer(duration, home);
   }
 

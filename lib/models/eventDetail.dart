@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:glass_kit/glass_kit.dart';
 
 class EventDetailPage extends StatelessWidget {
   const EventDetailPage({
@@ -20,6 +22,13 @@ class EventDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff182029),
+      floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: Colors.white54.withOpacity(0.6),
+        onPressed: () {},
+        label: Text('Register'),
+        icon: Icon(FontAwesomeIcons.rocket),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -58,7 +67,9 @@ class EventDetailPage extends StatelessWidget {
                             Text(
                               '$society,',
                               style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.w500),
+                                  color: Colors.white.withOpacity(0.7),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500),
                             ),
                             SizedBox(
                               height: 8,
@@ -66,7 +77,9 @@ class EventDetailPage extends StatelessWidget {
                             Text(
                               college,
                               style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.w500),
+                                  color: Colors.white.withOpacity(0.7),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500),
                             ),
                           ],
                         ),
@@ -74,13 +87,23 @@ class EventDetailPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-                    child: Text(
-                  content,
-                  style: TextStyle(
-                    fontSize: 17,
+                GlassContainer.clearGlass(
+                  borderRadius: BorderRadius.circular(20),
+                  height: MediaQuery.of(context).size.height * 0.38,
+                  width: MediaQuery.of(context).size.width / 1.1,
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        content,
+                        style: TextStyle(
+                          color: Colors.white.withOpacity(0.7),
+                          fontSize: 17,
+                        ),
+                      ),
+                    ),
                   ),
-                ))
+                ),
               ],
             ),
           ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rive/rive.dart';
 import 'package:socialmedia/controllers/splashController.dart';
 import 'package:socialmedia/utils/colorsUi.dart';
+import 'package:lottie/lottie.dart';
 
 class SplashScreenPage extends StatelessWidget {
   // ignore: unused_field
@@ -15,11 +15,11 @@ class SplashScreenPage extends StatelessWidget {
           Column(
             children: [
               Container(
-                color: Color(0xffa6a0c9),
+                color: Color(0xff182029),
                 height: MediaQuery.of(context).size.height,
                 width: double.infinity,
-                child: RiveAnimation.asset(
-                  'assets/anim.riv',
+                child: Lottie.asset(
+                  'assets/lottie.json',
                   fit: BoxFit.contain,
                 ),
               ),

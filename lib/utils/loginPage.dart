@@ -24,6 +24,7 @@ class LoginScreen extends StatelessWidget {
 
       await _auth.signInWithEmailAndPassword(
           email: data.name, password: data.password);
+      GetStorage().write('uid', _auth.currentUser!.uid);
       return null;
     } on FirebaseAuthException catch (e) {
       return '${e.message}';
@@ -34,6 +35,7 @@ class LoginScreen extends StatelessWidget {
     try {
       await _auth.signInWithEmailAndPassword(
           email: data.name, password: data.password);
+      GetStorage().write('uid', _auth.currentUser!.uid);
       return null;
     } on FirebaseAuthException catch (e) {
       return '${e.message}';

@@ -11,7 +11,7 @@ import 'package:socialmedia/utils/userDetails.dart';
 
 class ProfilePage extends StatelessWidget {
   final ProfileController _profileController = Get.put(ProfileController());
-  final String url = 'https://i.imgur.com/gidLEsw.png';
+  final String url = 'https://i.imgur.com/r3dsypWt.png';
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

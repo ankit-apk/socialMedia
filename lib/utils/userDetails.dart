@@ -35,7 +35,10 @@ class UserDetailsPage extends StatelessWidget {
                           _profileController.getImage();
                         },
                         child: _profileController.picFromGoogle.isEmpty
-                            ? CircularProgressIndicator()
+                            ? CircleAvatar(
+                                child: Icon(FontAwesomeIcons.user),
+                                radius: 50,
+                              )
                             : ClipOval(
                                 child: CachedNetworkImage(
                                   imageUrl: _profileController.picFromGoogle[0]
@@ -62,7 +65,9 @@ class UserDetailsPage extends StatelessWidget {
                             },
                             decoration: InputDecoration(
                                 hintText: _profileController
-                                                .detailsFromGoogle[0]['name'] ==
+                                            .detailsFromGoogle.isEmpty ||
+                                        _profileController.detailsFromGoogle[0]
+                                                ['name'] ==
                                             '' ||
                                         _profileController.detailsFromGoogle[0]
                                                 ['name'] ==
@@ -96,6 +101,8 @@ class UserDetailsPage extends StatelessWidget {
                                 },
                                 decoration: InputDecoration(
                                     hintText: _profileController
+                                                .detailsFromGoogle.isEmpty ||
+                                            _profileController
                                                         .detailsFromGoogle[0]
                                                     ['age'] ==
                                                 '' ||
@@ -125,6 +132,8 @@ class UserDetailsPage extends StatelessWidget {
                                 },
                                 decoration: InputDecoration(
                                     hintText: _profileController
+                                                .detailsFromGoogle.isEmpty ||
+                                            _profileController
                                                         .detailsFromGoogle[0]
                                                     ['gender'] ==
                                                 '' ||
@@ -159,7 +168,8 @@ class UserDetailsPage extends StatelessWidget {
                             },
                             decoration: InputDecoration(
                                 hintText: _profileController
-                                                    .detailsFromGoogle[0]
+                                            .detailsFromGoogle.isEmpty ||
+                                        _profileController.detailsFromGoogle[0]
                                                 ['college'] ==
                                             '' ||
                                         _profileController.detailsFromGoogle[0]
@@ -190,7 +200,7 @@ class UserDetailsPage extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Icon(FontAwesomeIcons.draftingCompass),
+                              Icon(FontAwesomeIcons.save),
                               Text(
                                 'Save',
                                 style: TextStyle(

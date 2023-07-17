@@ -17,13 +17,13 @@ class LoginScreen extends StatelessWidget {
     }
   }
 
-  Future<String?> authUser(LoginData data) async {
+  Future<String?> authUser(SignupData data) async {
     try {
       await _auth.createUserWithEmailAndPassword(
-          email: data.name, password: data.password);
+          email: data.name ?? "", password: data.password ?? "");
 
       await _auth.signInWithEmailAndPassword(
-          email: data.name, password: data.password);
+          email: data.name ?? "", password: data.password ?? "");
       GetStorage().write('uid', _auth.currentUser!.uid);
       return null;
     } on FirebaseAuthException catch (e) {
